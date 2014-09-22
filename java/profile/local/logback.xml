@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<target>System.out</target>
+		<encoder>
+			<pattern>%d{yyyy/MM/dd HH:mm:ss} %-5level:[%t] %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="PERFORMANCE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/performance.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/last/performance.%d{yyyy-MM-dd}.zip</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy/MM/dd HH:mm:ss} %-5level [%t] %m%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="ACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/access.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/last/access.%d{yyyy-MM-dd}.zip</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy/MM/dd HH:mm:ss} %-5level [%t] %m%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="SYSTEM" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/system.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/last/system.%d{yyyy-MM-dd}.zip</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy/MM/dd HH:mm:ss} %-5level [%t] %m%n</pattern>
+		</encoder>
+	</appender>
+
+
+
+	<logger name="jp.wda.performance" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="PERFORMANCE" />
+	</logger>
+	<logger name="jp.wda.access" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="ACCESS" />
+	</logger>
+	<logger name="jp.wda.system" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="SYSTEM" />
+	</logger>
+	<logger name="jp.wda.reprorper" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="SYSTEM" />
+	</logger>
+	<logger name="org.seasar" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="SYSTEM" />
+	</logger>
+
+
+
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>

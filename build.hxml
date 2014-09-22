@@ -1,0 +1,8 @@
+-cp src/extern
+-cp src/haxe
+
+-debug
+-D no-compilation
+-D java-ver 7
+-main Main
+-java java/haxe
