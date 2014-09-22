@@ -5,6 +5,11 @@
 .factorypath
 /build/
 /distribute/
+/gradle/
+gradlew
+gradlew.bat
+
+
 
 /java/profile/deploy/
 /java/haxe/
