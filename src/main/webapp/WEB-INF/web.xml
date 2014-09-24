@@ -44,10 +44,6 @@
             <param-name>javax.ws.rs.Application</param-name>
             <param-value>jp.wda.reprorper.MyResourceConfig</param-value>
         </init-param>
-        <init-param>
-            <param-name>javax.ws.rs.container.ContainerResponseFilter</param-name>
-            <param-value>jp.wda.commons.framework.listener.CORSFilter</param-value>
-        </init-param>
     </servlet>
 
     <servlet>

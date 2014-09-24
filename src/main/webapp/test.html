@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type"        content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language"    content="ja">
+<meta http-equiv="Content-Style-Type"  content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Pragma"              content="no-cache">
+<meta http-equiv="Cache-Control"       content="no-cache">
+<meta http-equiv="Expires"             content="Thu, 01 Dec 1994 16:00:00 GMT">
+<meta name="Revision" content="$Revision$">
+<meta name="Updated"  content="$Date$">
+
+<title>reprorper test</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/test.js"></script>
+</head>
+
+<body>
+<form action="http://localhost:8080/reprorper/api/test001/hx" method="POST" id="mainForm">
+	label:<input type="text" id="txtLabel" size="50"/><br/>
+	<textarea name="q" cols="100" rows="5" id="txtMessage"></textarea>
+<input type="button" value="投稿" id="btnWrite"/>
+</form>
+<hr/>
+page:<input type="text" id="txtPage" size="5" value="0" /><br/>
+amount:<input type="text" id="txtAmount" size="5" value="50" /><br/>
+<input type="button" id="btnGetLabels" value="labels(page, amount)">
+<hr/>
+from:<input type="text" id="txtFrom" size="15" value="2014-09-24" /><br/>
+to  :<input type="text" id="txtTo"   size="15" value="2014-09-25" /><br/>
+<input type="button" id="btnLabelsByTime" value="labelsByTime(from, to)">
+<hr/>
+id:<input type="text" id="txtId" size="5" value="0" /><br/>
+<input type="button" id="btnGetLog" value="getLog(id)">
+</body>
+</html>

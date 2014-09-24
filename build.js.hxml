@@ -1,0 +1,7 @@
+-cp src/extern
+-cp src/haxe
+
+-debug
+-lib jQueryExtern
+-main TestMain
+-js src/main/webapp/js/test.js
