@@ -14,9 +14,10 @@ interface HxActionControler {
 	 * 
 	 * @param	ctx
 	 * @param	request
+	 * @param	section
 	 * @param	parameter
 	 * @return
 	 */
-	public function action(ctx:ServletContext, request:HttpServletRequest, parameter:String):String;
+	public function action(ctx:ServletContext, request:HttpServletRequest, section:String, parameter:String):String;
 
 }

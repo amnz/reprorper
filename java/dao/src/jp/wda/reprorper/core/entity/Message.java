@@ -42,17 +42,22 @@ public class Message implements Serializable {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long messageId;
+	public int messageId;
 
 	/**
 	 *
 	 */
-	public Long sectionId;
+	public int sectionId;
 
 	/**
 	 *
 	 */
 	public String author;
+
+	/**
+	 *
+	 */
+	public String label;
 
 	/**
 	 *

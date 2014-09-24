@@ -5,7 +5,7 @@ package jp.wda.reprorper.model;
  * 
  * @author amnz
  */
-class MessageDto {
+class MessageLabelDto {
 
 	// コンストラクタ ///////////////////////////////////////////////////////////////////
 	//                                                                    Constructors //
@@ -24,9 +24,8 @@ class MessageDto {
 	/////////////////////////////////////////////////////////////////////////////////////
 	
 	public var messageId:Int;
-	public var author:String;
 	public var label:String;
-	public var message:String;
 	public var registeredAt:Date;
+
 
 }

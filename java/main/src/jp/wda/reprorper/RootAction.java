@@ -7,6 +7,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
@@ -94,32 +95,52 @@ public class RootAction {
 
 	/**
 	 *
-	 *
+	 * @param section
+	 * @param parameter
 	 * @return
 	 */
 	@GET
-	@Path("/hx")
+	@Path("/{section}/hx")
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response get(
-			  @QueryParam("q")		String parameter
+				@PathParam("section")	String section
+			  , @QueryParam("q")		String parameter
 			) {
 		log.info(request.getRemoteAddr() + " [GET]  " + parameter);
-		return Response.ok(controller.action(context, request, parameter)).build();
+		return process(section, parameter);
 	}
 
 	/**
 	 *
-	 *
+	 * @param section
+	 * @param parameter
 	 * @return
 	 */
 	@POST
-	@Path("/hx")
+	@Path("/{section}/hx")
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response post(
-			  @FormParam("q")		String parameter
+				@PathParam("section")	String section
+			  , @FormParam("q")			String parameter
 			) {
 		log.info(request.getRemoteAddr() + " [POST] " + parameter);
-		return Response.ok(controller.action(context, request, parameter)).build();
+		return process(section, parameter);
+	}
+
+	/**
+	 *
+	 * @param section
+	 * @param parameter
+	 * @return
+	 */
+	public Response process(String section, String parameter) {
+		response.setHeader("Access-Control-Allow-Origin",		"*");
+		response.setHeader("Access-Control-Allow-Headers",		"origin, content-type, accept, authorization");
+		response.setHeader("Access-Control-Allow-Credentials",	"true");
+		response.setHeader("Access-Control-Allow-Methods",		"GET, POST");
+		response.setHeader("Access-Control-Max-Age",			"1209600");
+
+		return Response.ok(controller.action(context, request, section, parameter)).build();
 	}
 
 }

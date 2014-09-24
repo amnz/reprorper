@@ -1,6 +1,7 @@
 package jp.wda.reprorper;
 
 import jp.wda.reprorper.model.MessageDto;
+import jp.wda.reprorper.model.MessageLabelDto;
 
 /**
  * ...
@@ -15,6 +16,9 @@ enum HxResults {
 	
 	
 	messages(list:Array<MessageDto>);
+	
+	
+	labels(list:Array<MessageLabelDto>);
 	
 	
 	log(data:MessageDto);

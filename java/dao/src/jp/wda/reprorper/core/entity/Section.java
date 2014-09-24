@@ -41,7 +41,7 @@ public class Section implements Serializable {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long sectionId;
+	public int sectionId;
 
 	/**
 	 *

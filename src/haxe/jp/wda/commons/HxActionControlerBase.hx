@@ -36,8 +36,8 @@ class HxActionControlerBase implements HxActionControler {
 	/////////////////////////////////////////////////////////////////////////////////////
 	
 	/** {@inheritDoc} */
-	public function action(ctx:ServletContext, request:HttpServletRequest, parameter:String):String {
-		this.context = JavaUtilities.hxContext(ctx, request);
+	public function action(ctx:ServletContext, request:HttpServletRequest, section:String, parameter:String):String {
+		this.context = JavaUtilities.hxContext(ctx, request, section);
 		var api:EnumValue;
 		try {
 			api = SerializerTools.unserialize(parameter);

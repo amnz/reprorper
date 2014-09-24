@@ -3,6 +3,7 @@ select
 	  m.message_id
 	, m.section_id
 	, m.author
+	, m.label
 	, m.message
 	, m.version_no
 	, m.registered_at

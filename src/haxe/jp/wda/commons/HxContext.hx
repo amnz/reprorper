@@ -15,8 +15,9 @@ class HxContext {
 	 * ...
 	 *
 	 */
-	public function new(ipAddress:String) {
+	public function new(ipAddress:String, section:String) {
 		this.remoteAddress = ipAddress;
+		this.section       = section;
 	}
 
 	// プロパティ ///////////////////////////////////////////////////////////////////////
@@ -26,7 +27,11 @@ class HxContext {
 	/**
 	 * 
 	 */
+	public var section(default, null):String;
+	
+	/**
+	 * 
+	 */
 	public var remoteAddress(default, null):String;
-
 
 }
