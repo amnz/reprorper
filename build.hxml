@@ -1,6 +1,7 @@
 -cp src/extern
 -cp src/haxe
 -cp src/haxe_commons
+-cp src/haxe_redis
 
 -debug
 -D no-compilation

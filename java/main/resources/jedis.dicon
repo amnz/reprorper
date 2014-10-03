@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN"
+	"http://www.seasar.org/dtd/components24.dtd">
+<components namespace="jedis">
+
+	<component class="redis.clients.jedis.JedisPoolConfig"
+			   name="config">
+	</component>
+
+	<component class="redis.clients.jedis.JedisPool"
+			   name="jedisPool">
+		<arg>config</arg>
+		<arg>"localhost"</arg>
+
+		<destroyMethod name="destroy"></destroyMethod>
+	</component>
+
+	<component class="redishx.impl.JedisPoolWrapper">
+		<arg>jedisPool</arg>
+	</component>
+
+</components>

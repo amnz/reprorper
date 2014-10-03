@@ -1,6 +1,7 @@
 package ;
 
 import jp.wda.reprorper.ReprorperService;
+import redishx.impl.JedisPoolWrapper;
 
 /**
  * ...

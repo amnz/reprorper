@@ -162,6 +162,7 @@ dependencies {
 
 	compile 'javax.transaction:jta:1.1'
 	compile 'postgresql:postgresql:9.1-901-1.jdbc4'
+	compile 'redis.clients:jedis:2.6.0'
 
 
 	// Seasar2

@@ -8,6 +8,7 @@ import jp.wda.reprorper.model.MessageDto;
 import jp.wda.reprorper.model.MessageLabelDto;
 
 import org.seasar.doma.jdbc.SelectOptions;
+import redishx.RedishxService;
 
 import wdacommons.HxActionControlerBase;
 import wdacommons.HxErrorResult;
@@ -20,7 +21,7 @@ import wdacommons.SerializerTools;
  * 
  * @author amnz
  */
-class ReprorperService extends HxActionControlerBase {
+class ReprorperService extends RedishxService {
 
 	// コンストラクタ ///////////////////////////////////////////////////////////////////
 	//                                                                    Constructors //
@@ -109,6 +110,12 @@ class ReprorperService extends HxActionControlerBase {
 	 * @see jp.wda.reprorper.HxActions#labels(page:Int, amount:Int)
 	 */
 	public function labels(page:Int, amount:Int):HxResults {
+		redis.set("mykey", "Hello");
+		  log.debug(this + " jedis.keys : " + redis.keys("*"));
+		  log.debug(this + " jedis.keys mykey = " + redis.get("mykey"));
+		redis.del("mykey");
+		  log.debug(this + " jedis.keys : " + redis.keys("*"));
+		
 		return HxResults.labels(JavaUtilities.duplicate(
 			  dao.selectByOption(context.section, SelectOptions.get().limit(amount).offset(page * amount))
 			, MessageLabelDto));

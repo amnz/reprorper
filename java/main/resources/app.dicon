@@ -5,6 +5,7 @@
 	<include path="convention.dicon"/>
 	<include path="aop.dicon"/>
 	<include path="j2ee.dicon"/>
+	<include path="jedis.dicon"/>
 
 
 	<component
