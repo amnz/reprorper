@@ -1,4 +1,4 @@
-package jp.wda.commons;
+package wdacommons;
 
 /**
  * ...
@@ -8,5 +8,7 @@ package jp.wda.commons;
 enum HxErrorResult {
 
 	error;
+	
+	exception(exception:Dynamic);
 
 }

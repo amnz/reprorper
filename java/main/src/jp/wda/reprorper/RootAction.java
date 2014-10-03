@@ -15,12 +15,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import jp.wda.commons.HxActionControler;
-
 import org.seasar.framework.container.S2Container;
 import org.seasar.framework.container.factory.SingletonS2ContainerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import wdacommons.HxActionControler;
 
 /**
  *

@@ -1,4 +1,4 @@
-package jp.wda.commons ;
+package wdacommons ;
 
 import haxe.Serializer;
 import haxe.Unserializer;

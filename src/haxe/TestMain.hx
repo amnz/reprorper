@@ -8,7 +8,7 @@ import jp.wda.reprorper.model.MessageLabelDto;
 import jQuery.*;
 import js.Lib;
 
-import jp.wda.commons.SerializerTools;
+import wdacommons.SerializerTools;
 
 /**
  * ...

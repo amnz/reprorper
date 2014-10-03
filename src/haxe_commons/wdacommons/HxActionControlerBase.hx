@@ -1,4 +1,4 @@
-package jp.wda.commons;
+package wdacommons;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.ServletContext;
@@ -25,11 +25,11 @@ class HxActionControlerBase implements HxActionControler {
 		
 	}
 	/** システムロガー */
-	var log:Logger = LoggerFactory.getLogger("jp.wda.system");
+	public var log(default, null):Logger = LoggerFactory.getLogger("jp.wda.system");
 	/**  */
-	public var context:HxContext;
+	public var context(default, null):HxContext;
 	/**  */
-	public var actionEnum:EnumValue;
+	public var actionEnum(default, null):EnumValue;
 
 	// コントローラ /////////////////////////////////////////////////////////////////////
 	//                                                              Controller Methods //
@@ -57,7 +57,7 @@ class HxActionControlerBase implements HxActionControler {
 			return SerializerTools.serialize( this.invoke() );
 		}
 		
-		return SerializerTools.serialize( Reflect.callMethod(this, serviceMethod, Type.enumParameters(api)) );
+		return invokeAPI(serviceMethod);
 	}
 	
 	/**
@@ -67,7 +67,16 @@ class HxActionControlerBase implements HxActionControler {
 	 * @return
 	 */
 	public function unserializeError(parameter:String, unknown:Dynamic):Dynamic {
-		return HxErrorResult.error;
+		return HxErrorResult.exception(unknown);
+	}
+	
+	/**
+	 * 
+	 * @param	serviceMethod
+	 * @return
+	 */
+	public function invokeAPI(serviceMethod:Dynamic):String {
+		return SerializerTools.serialize( Reflect.callMethod(this, serviceMethod, Type.enumParameters(this.actionEnum)) );
 	}
 	
 	/**

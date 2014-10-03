@@ -1,4 +1,4 @@
-package jp.wda.commons ;
+package wdacommons ;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.ServletContext;

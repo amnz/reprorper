@@ -18,6 +18,7 @@
   <classpaths>
     <class path="src\haxe" />
     <class path="src\extern" />
+    <class path="src\haxe_commons" />
   </classpaths>
   <!-- Build options -->
   <build>

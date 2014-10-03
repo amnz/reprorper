@@ -1,5 +1,6 @@
 -cp src/extern
 -cp src/haxe
+-cp src/haxe_commons
 
 -debug
 -lib jQueryExtern
