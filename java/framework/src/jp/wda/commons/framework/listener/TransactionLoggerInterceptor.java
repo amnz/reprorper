@@ -66,24 +66,24 @@ public class TransactionLoggerInterceptor extends AbstractInterceptor {
 		long initUsing = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 		long starttime = System.currentTimeMillis();
 
-		Object action = null;
+		StringBuilder parameters = new StringBuilder();
 		HttpServletRequest request = null;
-		if(debugMode()) {
-			action = invocation.getThis();
+		if(debugMode() && "action".equals(invocation.getMethod().getName())) {
 			Object[] args = invocation.getArguments();
 			for(Object a : args) {
 				if(a instanceof HttpServletRequest) {
 					request = (HttpServletRequest)a;
-					break;
+				} else if (a instanceof String) {
+					parameters.append(a);
+					parameters.append(" ");
 				}
 			}
+		}
 
+		if(request != null) {
 			logger.info("Transaction Start ----------------------------------------------------------");
-			logger.info("Action        :" + action.getClass().getName());
-			if(request != null) {
-				logger.info("HxAction      :" + request.getParameter("q"));
-				logger.info("RemoteAddr    :" + request.getRemoteAddr());
-			}
+			logger.info("Action Params :" + parameters);
+			logger.info("RemoteAddr    :" + request.getRemoteAddr());
 		}
 
 		Object ret = null;
@@ -94,11 +94,9 @@ public class TransactionLoggerInterceptor extends AbstractInterceptor {
 			cause = t;
 		}
 
-		if(action != null) {
+		if(request != null) {
 			logger.info("  Performance Report ****************");
-			if(request != null) {
-				logger.info("  RemoteAddr  :" + request.getRemoteAddr());
-			}
+			logger.info("  RemoteAddr  :" + request.getRemoteAddr());
 			logger.info("  processing  :" + (System.currentTimeMillis() - starttime) + "msec.");
 			logger.info("  maxMemory   :" + Runtime.getRuntime().maxMemory());
 			logger.info("  totalMemory :" + Runtime.getRuntime().totalMemory());
